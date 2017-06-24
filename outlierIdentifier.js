@@ -1,13 +1,14 @@
 var dateIdentifier = require("./dateIdentifier")
 
-function findOutlierId(parsedData) {
+module.exports = exports = function(parsedData) {
     var plants = []
     for (var i in parsedData) {
         var plant = parsedData[i].plant
 
         var deliveredArray = plant.delivered
         for (var i = 0; i < deliveredArray; i++) {
-            if (dateIdentifier.TimeIsValid(deliveredArray[i].time))
+            var isValid = dateIdentifier.Date(deliveredArray[i].time).TimeIsValid() && dateIdentifier.Date(deliveredArray[i].time).DateIsValid()
+            if (isValid)
                 plant.dtSum += deliveredArray[i].time
         }
 

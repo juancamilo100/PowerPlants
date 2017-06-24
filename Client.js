@@ -1,6 +1,6 @@
 var http = require("http");
 var url = "http://ascbackend.azurewebsites.net/api/powertrip/plants/86a703c1497440eea0c92fc35a44184e"
-var outlierIdentifier = require(outlierIdentifier);
+var outlierIdentifier = require("./outlierIdentifier.js")
 
 var request = http.get(url, function(response) {
     console.dir(response.statusCode);
@@ -15,7 +15,7 @@ var request = http.get(url, function(response) {
         try {
           var parsedData = JSON.parse(body);
           console.log(parsedData)
-          var outlierId = outlierIdentifier.findOutlierId(parsedData)
+          var outlierId = outlierIdentifier(parsedData)
         } catch(error) {
           console.log(error);
         }
