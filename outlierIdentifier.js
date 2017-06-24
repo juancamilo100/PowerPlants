@@ -1,4 +1,4 @@
-var dateIdentifier = require(dateIdentifier);
+var dateIdentifier = require("./dateIdentifier")
 
 function findOutlierId(parsedData) {
     var plants = []
@@ -14,22 +14,24 @@ function findOutlierId(parsedData) {
         plants.push(plant)
     }
 
-    console.log("plants (pre-sort): " + plants)
+    var outlier
+    if (plants.length > 2) {
+        console.log("plants (pre-sort): " + plants)
 
-    plants.sort(function (a, b) {
-        return a - b;
-    })
+        plants.sort(function (a, b) {
+            return a.dtSum - b.dtSum
+        })
 
-    console.log("plants (post-sort): " + plants)
+        console.log("plants (post-sort): " + plants)
 
-    var diffFirstElementsSum = plants[1].dtSum - plants[0].dtSum
-    var diffLastElementsSum = plants[plants.length - 1].dtSum - plants[plants.length - 2].dtSum
-    var outlier;
-    if (diffFirstElementsSum > diffLastElementsSum) {
-        outlier = plants[0]
-    }
-    else {
-        outlier = plants[plants.length - 1]
+        var diffFirstElementsSum = plants[1].dtSum - plants[0].dtSum
+        var diffLastElementsSum = plants[plants.length - 1].dtSum - plants[plants.length - 2].dtSum
+        if (diffFirstElementsSum > diffLastElementsSum) {
+            outlier = plants[0]
+        }
+        else {
+            outlier = plants[plants.length - 1]
+        }
     }
 
     console.log("outlier: " + outlier)
