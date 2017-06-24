@@ -1,32 +1,34 @@
 var datetime = require('node-datetime');
 var someDate = "2015-03-23 16:45"
-var date = datetime.create(someDate);
-var formattedDate = date.format('m-d-Y');
-var formattedHour = date.format('H');
-// console.log(formattedDate);
-// console.log(formattedHour);
+var anotherDate = "05-23-2017 20:33"
 
-function
+function Date(dateString) {
+   var date = datetime.create(dateString);
+   this.date = date.format('m-d-Y');
+   this.hour = date.format('H');
+   this.timeIsValid = TimeIsValid;
+   this.dateIsValid = DateIsValid;
+   return this;
+}
 
-function TimeIsValid(date)
+function TimeIsValid()
 {
-  var date = datetime.create(someDate);
-  var formattedDate = date.format('m-d-Y');
-  var formattedHour = date.format('H');
-  if(formattedHour >= 5 && formattedHour <= 19) {
+  if(this.hour >= 5 && this.hour <= 19) {
+    console.log("Hour is: " + this.hour);
     console.log("Valid!");
     return true;
   }
   else {
+    console.log("Hour is: " + this.hour);
     console.log("Not valid!");
     return false;
   }
 }
 
-function DateIsValid(date)
+function DateIsValid()
 {
-
+  console.log("Checking date!");
+  return 1
 }
 
-
-TimeIsValid(someDate)
+module.exports.Date = Date;
