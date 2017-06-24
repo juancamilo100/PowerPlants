@@ -3,7 +3,7 @@ var fs = require('fs');
 
 
 function ReadFile(callback) {
-  fs.readFile('demofile1.txt', function(err, data) {
+  fs.readFile('honeywelljson.txt', function(err, data) {
       var receivedData = JSON.parse(data.toString());
       console.log(receivedData.body);
       callback(receivedData)
