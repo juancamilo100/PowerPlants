@@ -1,0 +1,23 @@
+{
+  "name": "powerplants",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juancamilo100/PowerPlants.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juancamilo100/PowerPlants/issues"
+  },
+  "homepage": "https://github.com/juancamilo100/PowerPlants#readme",
+  "dependencies": {
+    "moment": "^2.18.1",
+    "node-datetime": "^1.0.1"
+  }
+}
