@@ -27,8 +27,14 @@ function TimeIsValid()
 
 function DateIsValid()
 {
-  console.log("Checking date!");
-  return 1
+  if('03-25-2015' == this.date) {
+    console.log("Date is correct!");
+    return true;
+  }
+  else {
+    console.log("Date is incorrect!");
+    return false;
+  }
 }
 
 module.exports.Date = Date;
